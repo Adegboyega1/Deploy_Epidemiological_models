@@ -39,6 +39,6 @@ tensorflow==2.10.0
 tensorflow-io-gcs-filesystem==0.31.0
 termcolor==2.3.0
 urllib3==1.26.16
-Werkzeug==2.3.7
+Werkzeug==2.2.3
 wrapt==1.15.0
 zstandard==0.19.0
