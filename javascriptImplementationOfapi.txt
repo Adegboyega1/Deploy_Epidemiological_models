@@ -1,0 +1,22 @@
+import requests
+import json
+
+url = "http://127.0.0.1:8000/Measles_forecaster"
+
+payload = json.dumps({
+  "week_1": 30,
+  "week_2": 5,
+  "week_3": 7,
+  "week_4": 8,
+  "week_5": 11,
+  "week_6": 13,
+  "week_7": 17,
+  "week_8": 20
+})
+headers = {
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
