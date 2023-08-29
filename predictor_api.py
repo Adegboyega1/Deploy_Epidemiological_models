@@ -87,7 +87,7 @@ def bifurcated_lstm(data:measles_data):
 
 
 if __name__ == '__predictor_api__' :
-    uvicorn.run(app, host='0.0.0.0',port=10000)
+    uvicorn.run(app, host='127.0.0.1',port=8000)
 
 
 #uvicorn predictor_api:app --reload
