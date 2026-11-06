@@ -1,0 +1,24 @@
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+    "week_1": wk1.value,
+    "week_2": wk2.value,
+    "week_3": wk3.value,
+    "week_4": wk4.value,
+    "week_5": wk5.value,
+    "week_6": wk6.value,
+    "week_7": wk7.value,
+    "week_8": wk8.value
+    });
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    fetch("http://127.0.0.1:8000/Measles_forecaster", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error)
+      );

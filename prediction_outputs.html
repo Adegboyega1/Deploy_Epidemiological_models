@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<style>
+    .brand-logo{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+    }
+    #login{
+        margin-right: 65em;
+    }
+    .modal-title{
+        margin-left: 4em;
+    }
+    h1{
+        position: absolute;
+        top: 200px;
+        left: 450px;
+
+        text-align: center;
+        
+        z-index: 2;
+        color: #0d1407;
+        font-weight:900;
+    }
+    #get_inputs{
+     position: absolute;
+     margin-top: 50px;
+     padding-left: 120px;
+     padding-right: 150px;
+     align-items: center;
+     
+   }
+   input{
+    width: 50;
+   }
+  #btn_predict{
+    
+    width: 10em;
+    height: 3em;
+    margin-left: 30em;
+    border-radius: 2em;
+  }
+  #shw_output{
+    width: 10em;
+    height: 3em;
+    margin-left: 5em;
+    border-radius: 2em;
+  }
+  #h2{
+    margin-top: 30px;
+    text-align: center;
+  }
+    #predator{
+       position:absolute; 
+       top:10em;
+       left: 4em;
+       
+    }
+    .box {
+            width: 150px;
+            height: 150px;
+            background-color: #b7cf5d;
+            line-height: 30px;
+            margin: 20px;
+            display: inline-block;
+    }
+    strong{
+      color:darkred;
+    }
+    p{
+      text-align: center;
+    }
+</style>
+<body>
+    <div class="row" >
+        <nav class="  #64b5f6 blue lighten-2" >
+            <div class="nav-wrapper" >
+              <a href="#" class="brand-logo">ePICAST  </a>
+              
+            </div>
+          </nav> 
+          
+    </div>
+    <div class="  modal fade" id="loginModal" >
+      <div class="modal-dialog">
+          <div class="modal-header">
+            <span>Outbreak Details in states</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+                <label> Heat Map to show details per state goes in here</label>
+      </div>
+    </div>
+      <div class="row"  >
+        <h6 id="h2">Epidemiological Surveillance and Forecasting System</h6>
+         <a data-bs-toggle="modal" data-bs-target="#loginModal"">
+          <div id="predator" class="row" >
+        
+          </div>
+
+        </a> 
+        <form class="col s12" id = "get_inputs">
+           <div class="row">
+            <div class="dropdown col s3" style="margin-top: 20px; " >
+              <a style="float:left;"    class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Select a Disease Model
+              </a>
+            
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" id="Measles" href="#">Measles</a></li>
+                <li><a class="dropdown-item" href="#">...</a></li>
+                <li><a class="dropdown-item" href="#">...</a></li>
+              </ul>
+            </div>
+            <h5 style="float:left; padding-top: 1em;" id="disease_label" class="col s9"></h5>
+           </div>
+          <div class="row">
+            <div class="input-field col s4" >
+              <input id="icon_prefix" type="text" class="validate small">
+              <label >First Week</label>
+            </div>
+            <div class="input-field col s4" >
+              <input id="icon_telephone" type="text" class="validate">
+              <label >Second Week</label>
+            </div>
+  
+            <div class="row">
+              <div class="input-field col s4" >
+                <input id="icon_three" type="text" class="validate small">
+                <label >Third Week</label>
+              </div>
+              <div class="input-field col s4"  >
+                <input id="icon_4" type="text" class="validate small">
+                <label >Fourth Week</label>
+              </div>
+  
+              <div class="row">
+                <div class="input-field col s4" >
+                  <input id="icon_5" type="text" class="validate">
+                  <label >Fifth Week</label>
+                </div>
+                <div class="input-field col s4" >
+                  <input id="icon_6" type="text" class="validate">
+                  <label >Sixth Week</label>
+                </div>
+  
+                <div class="row">
+                  <div class="input-field col s4" >
+                    <input id="icon_7" type="text" class="validate">
+                    <label >Seventh Week</label>
+                  </div>
+                  <div class="input-field col s4" >
+                    <input id="icon_8" type="text" class="validate">
+                    <label >Eigth Week</label>
+                  </div>
+                 </div>
+               
+                 <div class=" row" style="margin-top: 40px;" >
+                  <label  class="col-sm-2 col-form-label">Last Epidemic Date</label>
+                  <div class="col-sm-4">
+                    <input type="date" id="datepicker">
+                  </div>
+                </div>
+        </form>
+      </div>
+     
+     <div class="row">
+       <div class="col-sm-6">
+        <a  id="btn_predict"  style="margin-top: 40px;" class="waves-effect waves-light btn">Submit</a>
+       </div>
+     </div>
+  
+      
+   
+
+  <script src="epijavascript.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
