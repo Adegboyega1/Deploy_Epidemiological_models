@@ -32,6 +32,10 @@ sd=353.3286976677941
 def serve_index_directly():
     return FileResponse("index.html")
 
+@app.get("/prediction_outputs.html")
+def serve_prediction_outputs():
+    return FileResponse("prediction_outputs.html")
+
 
 @app.post('/Measles_forecaster')
 # model function goes here
