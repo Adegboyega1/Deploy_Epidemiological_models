@@ -16,6 +16,7 @@ from fastapi import FastAPI
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+from fastapi.responses import FileResponse
 
 tf.keras.utils.get_custom_objects().update({'MyCustomLayer':MyCustomLayer,'Pitchfork_bifurcation':Pitchfork_bifurcation})
 app = FastAPI()
@@ -27,10 +28,9 @@ testing_inpt = []
 mn=287.04433962264153 
 sd=353.3286976677941
 
-@app.get('/')
-# model function goes here
-def index():
-    return 'Hello world'
+@app.get("/index.html")
+def serve_index_directly():
+    return FileResponse("index.html")
 
 
 @app.post('/Measles_forecaster')
